@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Navbar from './ShareComponent/Navbar/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-4xl'>hello world</h1>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="" element="" />
+      </Routes>
     </div>
   );
 }
