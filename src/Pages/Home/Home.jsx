@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container  min-h-[20rem]">
         {/* section header  */}
         <h1 className="text-center text-lg md:text-2xl my-2 md:my-4 font-semibold">
           Main Task Board
