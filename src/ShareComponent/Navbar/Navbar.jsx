@@ -7,9 +7,9 @@ const Navbar = () => {
 
   //  navbar link active or deActive style
   const active =
-    "block py-2 px-4 bg-[#007ced] md:bg-transparent text-white rounded md:text-blue-700 font-[500] md:p-0";
+    "block py-2 px-4 bg-[#007ced] md:bg-transparent text-white rounded md:text-blue-700 font-[500] md:p-0 whitespace-nowrap";
   const deActive =
-    "block py-2 pr-4 pl-3 text-gray-700 rounded  font-[500] md:p-0";
+    "block py-2 pr-4 pl-3 text-gray-700 rounded  font-[500] md:p-0 whitespace-nowrap";
 
   return (
     <nav class="py-2.5 sticky top-0 left-0 z-30 bg-white shadow-lg">
@@ -76,6 +76,30 @@ const Navbar = () => {
                 className={({ isActive }) => (isActive ? active : deActive)}
               >
                 Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/toDo"
+                className={({ isActive }) => (isActive ? active : deActive)}
+              >
+                To-Do
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/completedTasks"
+                className={({ isActive }) => (isActive ? active : deActive)}
+              >
+                Completed Tasks
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/calendar"
+                className={({ isActive }) => (isActive ? active : deActive)}
+              >
+                Calendar
               </NavLink>
             </li>
             <li>
