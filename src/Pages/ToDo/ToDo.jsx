@@ -1,4 +1,5 @@
 import React from "react";
+import { BiEditAlt } from "react-icons/bi";
 
 const ToDo = () => {
   return (
@@ -23,7 +24,7 @@ const ToDo = () => {
                         />
                         <span>hello world</span>
                     </div>
-                    <button className="text-blue-600">Edit</button>
+                    <button className="text-blue-600 flex items-center">Edit <BiEditAlt className="ml-1 w-5 h-5" /></button>
                 </div>
                 <div>
                     <h6 className="mt-2">Details</h6>
