@@ -7,6 +7,8 @@ import MyCalendar from './Pages/MyCalendar/MyCalendar';
 import ToDo from './Pages/ToDo/ToDo';
 import Footer from './ShareComponent/Footer/Footer';
 import Navbar from './ShareComponent/Navbar/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/calendar" element={<MyCalendar />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

@@ -14,13 +14,11 @@ const Navbar = () => {
   return (
     <nav class="py-2.5 sticky top-0 left-0 z-30 bg-white shadow-lg">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
-
         {/* logo  */}
         <div class="self-center text-xl font-semibold whitespace-nowrap flex items-center">
           <img className="w-10 h-10 mr-1" src={logo} alt="logo" />
           <h2 className="text-green-700">TANVIR STORE</h2>
         </div>
-
 
         {/* responsive navbar open and close button  */}
         <div onClick={() => setOpen(!open)}>
@@ -138,10 +136,8 @@ const Navbar = () => {
 
               <span className="text-md text-gray-100 font-base">$5000</span>
             </div>
-            
           </ul>
         </div>
-
       </div>
     </nav>
   );

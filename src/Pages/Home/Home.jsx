@@ -1,28 +1,47 @@
-import { click } from "@testing-library/user-event/dist/click";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Home = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
+  const [reFeatch, setReFatch] = useState(true);
+  const [task, setTask] = useState([]);
+  // get method used get data
+  useEffect(() => {
+    fetch("http://localhost:5000/task")
+      .then((res) => res.json())
+      .then((data) => setTask(data));
+  }, [reFeatch]);
 
-
+  // post method used to add task
   const onSubmit = (data) => {
-    console.log(data);
+    fetch("http://localhost:5000/task", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        reset();
+        setReFatch(!reFeatch);
+        toast.success("Add New Task");
+      })
+      .catch((err) => toast.error("Something wrong"));
   };
 
-  const handleEnterKeySubmit = (event) => {
-    // console.log(click());
-    event.preventDefault();
+  // const handleEnterKeySubmit = (event) => {
+  //   // console.log(click());
+  //   event.preventDefault();
 
-    if (event.code === "Enter" || event.code === "NumpadEnter") {
-      console.log("Enter key was pressed. Run your function.");
-    }
-  };
+  //   if (event.code === "Enter" || event.code === "NumpadEnter") {
+  //     console.log("Enter key was pressed. Run your function.");
+  //   }
+  // };
 
   return (
     <div>
@@ -39,7 +58,7 @@ const Home = () => {
           </h3>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            onKeyUp={handleEnterKeySubmit}
+            // onKeyUp={handleEnterKeySubmit}
           >
             <div class="mb-3 md:mb-6">
               <input
@@ -80,37 +99,18 @@ const Home = () => {
           </h3>
 
           <div className="w-full grid grid-cols-2	gap-4 max-h-[20rem] overflow-y-auto">
-            <div className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
-              <input
-                type="checkbox"
-                class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
-              />
-              <span>hello world</span>
-            </div>
-
-            <div className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
-              <input
-                type="checkbox"
-                class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
-              />
-              <span>hello worlsdf </span>
-            </div>
-
-            <div className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
-              <input
-                type="checkbox"
-                class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
-              />
-              <span>hello world</span>
-            </div>
-
-            <div className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
-              <input
-                type="checkbox"
-                class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
-              />
-              <span>hello world</span>
-            </div>
+            {
+              task.map( singleData => (
+               
+                  <div key={singleData._id} className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
+                    />
+                    <span>{singleData?.taskTitle}</span>
+                  </div>
+          
+              ))}
           </div>
         </div>
       </div>
