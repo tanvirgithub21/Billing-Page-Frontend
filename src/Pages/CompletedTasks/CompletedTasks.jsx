@@ -37,7 +37,7 @@ const CompletedTasks = () => {
           Total Tasks <span>{data.length}</span>
         </h5>
 
-        <div className="w-full grid grid-cols-2	gap-4 max-h-[20rem]">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2	gap-4 max-h-[20rem]">
           {data.map((singleData) => (
             <div
               key={singleData?._id}

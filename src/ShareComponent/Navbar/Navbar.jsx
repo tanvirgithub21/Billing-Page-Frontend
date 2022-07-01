@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../Images/logo.png";
 
 const Navbar = () => {
@@ -15,10 +15,17 @@ const Navbar = () => {
     <nav class="py-2.5 sticky top-0 left-0 z-30 bg-white shadow-lg">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         {/* logo  */}
-        <div class="self-center text-xl font-semibold whitespace-nowrap flex items-center">
-          <img className="w-10 h-10 mr-1" src={logo} alt="logo" />
+        <Link
+          to="/home"
+          class="self-center text-base md:text-xl font-semibold whitespace-nowrap flex items-center"
+        >
+          <img
+            className=" w-6 md:w-10 h-6 md:h-10 mr-1"
+            src={logo}
+            alt="logo"
+          />
           <h2 className="text-green-700">Task Management</h2>
-        </div>
+        </Link>
 
         {/* responsive navbar open and close button  */}
         <div onClick={() => setOpen(!open)}>
@@ -108,34 +115,6 @@ const Navbar = () => {
                 Billing
               </NavLink>
             </li>
-            {/* <li>
-              <NavLink
-                to="/login"
-                className={({ isActive }) => (isActive ? active : deActive)}
-              >
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/logout"
-                className={({ isActive }) => (isActive ? active : deActive)}
-              >
-                Logout
-              </NavLink>
-            </li> */}
-
-            {/* paid amount  */}
-            <div className="bg-[#1c92da] py-1 px-2 rounded-md text-white mt-2 md:mt-0">
-              <div className="flex items-center text-base">
-                <span>Total Paid</span>
-                <span className="bg-white text-gray-700 p-1 rounded-full text-xs ml-1">
-                  25
-                </span>
-              </div>
-
-              <span className="text-md text-gray-100 font-base">$5000</span>
-            </div>
           </ul>
         </div>
       </div>

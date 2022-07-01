@@ -133,11 +133,11 @@ const Home = () => {
             Task List
           </h3>
 
-          <div className="w-full grid grid-cols-2	gap-4 max-h-[20rem] overflow-y-auto">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[20rem] overflow-y-auto">
             {
               task.map( singleData => (
                
-                  <div key={singleData._id} className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
+                  <div key={singleData._id} className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md ">
                     <input
                       onChange={ e => handleChange(e, {taskTitle: singleData?.taskTitle, taskDetails: singleData?.taskDetails}, singleData?._id)}
                       type="checkbox"
