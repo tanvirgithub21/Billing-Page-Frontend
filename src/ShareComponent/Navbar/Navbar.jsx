@@ -17,7 +17,7 @@ const Navbar = () => {
         {/* logo  */}
         <div class="self-center text-xl font-semibold whitespace-nowrap flex items-center">
           <img className="w-10 h-10 mr-1" src={logo} alt="logo" />
-          <h2 className="text-green-700">TANVIR STORE</h2>
+          <h2 className="text-green-700">Task Management</h2>
         </div>
 
         {/* responsive navbar open and close button  */}
@@ -64,7 +64,7 @@ const Navbar = () => {
         {/* navbar link and total paid amount */}
         <div
           class={`w-full md:block md:w-auto ease-in-out duration-1000 ${
-            open ? "mt-0" : "mt-[-300px]"
+            open ? "mt-0" : "mt-[-600px]"
           }  md:mt-0 z-20`}
         >
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium items-center">
@@ -108,7 +108,7 @@ const Navbar = () => {
                 Billing
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/login"
                 className={({ isActive }) => (isActive ? active : deActive)}
@@ -123,7 +123,7 @@ const Navbar = () => {
               >
                 Logout
               </NavLink>
-            </li>
+            </li> */}
 
             {/* paid amount  */}
             <div className="bg-[#1c92da] py-1 px-2 rounded-md text-white mt-2 md:mt-0">

@@ -10,25 +10,25 @@ const Home = () => {
     reset,
   } = useForm();
 
-  const [reFeatch, setReFatch] = useState(true);
+  const [reFetch, setReRetch] = useState(true);
   const [task, setTask] = useState([]);
   // get method used get data
   useEffect(() => {
-    fetch("http://localhost:5000/task")
+    fetch("https://boiling-savannah-80998.herokuapp.com/task")
       .then((res) => res.json())
       .then((data) => setTask(data));
-  }, [reFeatch]);
+  }, [reFetch]);
 
   // post method used to add task
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/task", {
+    fetch("https://boiling-savannah-80998.herokuapp.com/task", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => {
         reset();
-        setReFatch(!reFeatch);
+        setReRetch(!reFetch);
         toast.success("Add New Task");
       })
       .catch((err) => toast.error("Something wrong"));

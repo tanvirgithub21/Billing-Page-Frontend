@@ -7,14 +7,14 @@ const ToDo = () => {
   const [task, setTask] = useState([]);
   // get method used get data
   useEffect(() => {
-    fetch("http://localhost:5000/task")
+    fetch("https://boiling-savannah-80998.herokuapp.com/task")
       .then((res) => res.json())
       .then((data) => setTask(data));
   }, [reFetch]);
 
-
-  const completedTask = (data, id) =>{
-    fetch("http://localhost:5000/completed", {
+  // completed Task function
+  const completedTask = (data, id) => {
+    fetch("https://boiling-savannah-80998.herokuapp.com/completed", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -22,24 +22,35 @@ const ToDo = () => {
       .then((res) => {
         toast.success("Completed Task");
 
-        fetch(`http://localhost:5000/task/delete/${id}`, {
-          method: 'DELETE'
+        fetch(`https://boiling-savannah-80998.herokuapp.com/task/delete/${id}`, {
+          method: "DELETE",
         })
-          .then(res => res.json())
-          .then(data => setReFetch(!reFetch))
-          .catch(err => console.log(err));
-
-
-
-
-
+          .then((res) => res.json())
+          .then((data) => setReFetch(!reFetch))
+          .catch((err) => console.log(err));
       })
       .catch((err) => toast.error("Something wrong"));
+  };
+
+  // update data
+  const handleUpdate = (id, data, editStatus) => {
 
 
-  }
-  // http://localhost:5000/completed
+    console.log(id , data);
+    fetch(`https://boiling-savannah-80998.herokuapp.com/task/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then(res => {
+      setReFetch(!reFetch)
+      toast.success("Update Successful")
+      editStatus()
 
+    })
+    .catch(err => toast.error("Something wrong"))
+  };
 
   return (
     <div>
@@ -50,12 +61,17 @@ const ToDo = () => {
 
         <div className="max-w-[60rem]  min-h-[20rem] m-auto border-2 border-gray-300 rounded-md shadow-md mt-6 md:mt-10 p-3 mb-10">
           <h3 className="text-center text-base md:text-xl my-4 md:my-6 font-semibold">
-            Total Task <span>50</span>
+            Total Task <span>{task.length}</span>
           </h3>
 
           <div className="w-full grid grid-cols-2 gap-5 first-line:gap-4 max-h-[20rem] overflow-y-auto">
-            {task.map(( singleData ) => (
-              <ToDoComponent key={singleData._id} singleData={singleData} completedTask={completedTask}/>
+            {task.map((singleData) => (
+              <ToDoComponent
+                key={singleData._id}
+                singleData={singleData}
+                completedTask={completedTask}
+                handleUpdate={handleUpdate}
+              />
             ))}
           </div>
         </div>
