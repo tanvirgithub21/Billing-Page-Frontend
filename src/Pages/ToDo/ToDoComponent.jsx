@@ -19,16 +19,12 @@ const ToDoComponent = ({ singleData, completedTask, handleUpdate }) => {
   const handleChange = (event) => {
     if (event.target.checked) {
       completedTask(data, singleData?._id);
-    } else {
-      console.log("⛔️ Checkbox is NOT checked");
     }
     // setIsSubscribed(current => !current);
   };
 
   const onSubmit = (data) => {
-    handleUpdate(singleData?._id, data, ()=>setEditStatus(!editStatus));
-    
-    
+    handleUpdate(singleData?._id, data, () => setEditStatus(!editStatus));
   };
 
   return (

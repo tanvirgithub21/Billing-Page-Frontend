@@ -27,29 +27,26 @@ const ToDo = () => {
         })
           .then((res) => res.json())
           .then((data) => setReFetch(!reFetch))
-          .catch((err) => console.log(err));
+          .catch((err) => toast.error("Something wrong"));
       })
       .catch((err) => toast.error("Something wrong"));
   };
 
   // update data
   const handleUpdate = (id, data, editStatus) => {
-
-
-    console.log(id , data);
     fetch(`https://tu-du-app.herokuapp.com/task/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then(res => {
-      setReFetch(!reFetch)
-      toast.success("Update Successful")
-      editStatus()
-
     })
-    .catch(err => toast.error("Something wrong"))
+      .then((res) => {
+        setReFetch(!reFetch);
+        toast.success("Update Successful");
+        editStatus();
+      })
+      .catch((err) => toast.error("Something wrong"));
   };
 
   return (

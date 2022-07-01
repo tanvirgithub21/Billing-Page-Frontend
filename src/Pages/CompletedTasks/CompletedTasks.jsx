@@ -16,7 +16,7 @@ const CompletedTasks = () => {
 
   // handle delete completed task
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/completed/delete/${id}`, {
+    fetch(`https://tu-du-app.herokuapp.com/completed/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -24,7 +24,7 @@ const CompletedTasks = () => {
         toast.success("Delete Successful")
         setReRetch(!reFetch)
       })
-      .catch((err) => toast.success("Sumthing Wong"));
+      .catch((err) => toast.error("Sumthing Wong"));
   };
 
   return (

@@ -20,13 +20,25 @@ const Footer = () => {
             <p className="  mb-1">Location: Barisal, Bangladesh</p>
             <p className="  mb-1">Email: tanvir.bd.global@gmail.com</p>
             <div className="flex mx-auto md:mx-0 w-32 justify-between items-center text-xl mt-5 text-gray-600 ">
-              <a href="https://www.facebook.com/tanvirahmed6147/" target="_blank" className="hover:text-gray-800">
+              <a
+                href="https://www.facebook.com/tanvirahmed6147/"
+                target="_blank"
+                className="hover:text-gray-800"
+              >
                 <BsFacebook />
               </a>
-              <a href="https://www.linkedin.com/in/tanvirahmed6174/" target="_blank"  className="hover:text-gray-800">
+              <a
+                href="https://www.linkedin.com/in/tanvirahmed6174/"
+                target="_blank"
+                className="hover:text-gray-800"
+              >
                 <BsLinkedin />
               </a>
-              <a href="https://github.com/tanvirgithub21" target="_blank"  className="hover:text-gray-800">
+              <a
+                href="https://github.com/tanvirgithub21"
+                target="_blank"
+                className="hover:text-gray-800"
+              >
                 <BsGithub />
               </a>
             </div>

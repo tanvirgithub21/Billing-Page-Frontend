@@ -60,7 +60,7 @@ const Home = () => {
         })
           .then((res) => res.json())
           .then((data) => setReRetch(!reFetch))
-          .catch((err) => console.log(err));
+          .catch((err) =>  toast.error("Something wrong") );
       })
       .catch((err) => toast.error("Something wrong"));
   };
@@ -70,10 +70,7 @@ const Home = () => {
   const handleChange = (event, data, id) => {
     if (event.target.checked) {
       completedTask(data, id);
-    } else {
-      console.log("⛔️ Checkbox is NOT checked");
     }
-    // setIsSubscribed(current => !current);
   };
 
 

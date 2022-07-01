@@ -3,18 +3,17 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 
 const AddModal = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-    
-const onSubmit = (data) => {
+  const onSubmit = (data) => {
     console.log(data);
-}
+  };
 
-  // custom style 
+  // custom style
   const customStyles = {
     content: {
       backgroundColor: "#eaeaeacc",
@@ -24,10 +23,10 @@ const onSubmit = (data) => {
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      marginTop: '2rem',
-      maxWidth: '500px',
-      minWidth: '300px',
-      width: '100%',
+      marginTop: "2rem",
+      maxWidth: "500px",
+      minWidth: "300px",
+      width: "100%",
       transform: "translate(-50%, -50%)",
     },
   };
@@ -41,7 +40,6 @@ const onSubmit = (data) => {
   function closeModal() {
     setIsOpen(false);
   }
-
 
   return (
     <div className="relative">
@@ -71,12 +69,13 @@ const onSubmit = (data) => {
               </svg>
             </button>
             {/* title  */}
-            <div className="font-semibold text-base md:text-xl">Add New Bill</div>
+            <div className="font-semibold text-base md:text-xl">
+              Add New Bill
+            </div>
           </div>
 
           {/* modal body  */}
           <form onSubmit={handleSubmit(onSubmit)}>
-
             <div class="mb-3 md:mb-6">
               <label
                 for="base-input"
@@ -86,7 +85,7 @@ const onSubmit = (data) => {
               </label>
               <input
                 type="text"
-                {...register('fullName')}
+                {...register("fullName")}
                 id="base-input"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 selection:"
               />
@@ -101,7 +100,7 @@ const onSubmit = (data) => {
               </label>
               <input
                 type="email"
-                {...register('email')}
+                {...register("email")}
                 id="base-input"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
               />
@@ -116,7 +115,7 @@ const onSubmit = (data) => {
               </label>
               <input
                 type="number"
-                {...register('phone')}
+                {...register("phone")}
                 id="base-input"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
               />
@@ -131,14 +130,18 @@ const onSubmit = (data) => {
               </label>
               <input
                 type="number"
-                {...register('paidAmount')}
+                {...register("paidAmount")}
                 id="base-input"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
               />
             </div>
 
-            <button type="submit" class="bg-[#12ab84] text-white border border-gray-300 text-sm rounded-lg block w-full pl-2 p-1 md:p-2.5 font-semibold">Add Bill</button>
-
+            <button
+              type="submit"
+              class="bg-[#12ab84] text-white border border-gray-300 text-sm rounded-lg block w-full pl-2 p-1 md:p-2.5 font-semibold"
+            >
+              Add Bill
+            </button>
           </form>
         </div>
       </Modal>
