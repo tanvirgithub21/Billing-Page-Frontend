@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { FcOk } from "react-icons/fc";
+import { MdDeleteForever } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const CompletedTasks = () => {
-
   const [reFetch, setReRetch] = useState(true);
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("https://tu-du-app.herokuapp.com/completedTask")
-    .then( res => res.json())
-    .then(d => setData(d))
-  },[reFetch])
+      .then((res) => res.json())
+      .then((d) => setData(d));
+  }, [reFetch]);
 
 
+  // handle delete completed task
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/completed/delete/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Delete Successful")
+        setReRetch(!reFetch)
+      })
+      .catch((err) => toast.success("Sumthing Wong"));
+  };
 
   return (
     <div className="container">
@@ -25,21 +38,21 @@ const CompletedTasks = () => {
         </h5>
 
         <div className="w-full grid grid-cols-2	gap-4 max-h-[20rem]">
-
-
-          {
-            data.map( singleData => (
-              <div key={singleData?._id} className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
+          {data.map((singleData) => (
+            <div
+              key={singleData?._id}
+              className="flex items-center justify-between font-[500] w-full bg-gray-200 px-3 py-1 rounded-md"
+            >
+              <div className="flex items-center">
                 <FcOk className="w-5 h-5 mr-2 " />
                 <span>{singleData?.taskTitle}</span>
               </div>
-            ))
-          }
-
-
-
+              <button onClick={() => handleDelete(singleData?._id)}>
+                <MdDeleteForever className="w-6 h-6 text-red-600" />
+              </button>
+            </div>
+          ))}
         </div>
-        
       </div>
     </div>
   );

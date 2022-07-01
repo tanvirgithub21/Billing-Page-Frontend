@@ -43,6 +43,41 @@ const Home = () => {
   //   }
   // };
 
+
+  
+  // completed Task function
+  const completedTask = (data, id) => {
+    fetch("https://tu-du-app.herokuapp.com/completed", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        toast.success("Completed Task");
+
+        fetch(`https://tu-du-app.herokuapp.com/task/delete/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => setReRetch(!reFetch))
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => toast.error("Something wrong"));
+  };
+
+
+    
+  const handleChange = (event, data, id) => {
+    if (event.target.checked) {
+      completedTask(data, id);
+    } else {
+      console.log("⛔️ Checkbox is NOT checked");
+    }
+    // setIsSubscribed(current => !current);
+  };
+
+
+
   return (
     <div>
       <div className="container  min-h-[20rem]">
@@ -104,6 +139,7 @@ const Home = () => {
                
                   <div key={singleData._id} className="flex items-center font-[500] w-full bg-gray-200 px-3 py-1 rounded-md">
                     <input
+                      onChange={ e => handleChange(e, {taskTitle: singleData?.taskTitle, taskDetails: singleData?.taskDetails}, singleData?._id)}
                       type="checkbox"
                       class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
                     />
