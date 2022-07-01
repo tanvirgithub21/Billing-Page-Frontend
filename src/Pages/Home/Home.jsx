@@ -14,14 +14,14 @@ const Home = () => {
   const [task, setTask] = useState([]);
   // get method used get data
   useEffect(() => {
-    fetch("https://boiling-savannah-80998.herokuapp.com/task")
+    fetch("https://tu-du-app.herokuapp.com/task")
       .then((res) => res.json())
       .then((data) => setTask(data));
   }, [reFetch]);
 
   // post method used to add task
   const onSubmit = (data) => {
-    fetch("https://boiling-savannah-80998.herokuapp.com/task", {
+    fetch("https://tu-du-app.herokuapp.com/task", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

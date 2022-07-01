@@ -7,14 +7,14 @@ const ToDo = () => {
   const [task, setTask] = useState([]);
   // get method used get data
   useEffect(() => {
-    fetch("https://boiling-savannah-80998.herokuapp.com/task")
+    fetch("https://tu-du-app.herokuapp.com/task")
       .then((res) => res.json())
       .then((data) => setTask(data));
   }, [reFetch]);
 
   // completed Task function
   const completedTask = (data, id) => {
-    fetch("https://boiling-savannah-80998.herokuapp.com/completed", {
+    fetch("https://tu-du-app.herokuapp.com/completed", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -22,7 +22,7 @@ const ToDo = () => {
       .then((res) => {
         toast.success("Completed Task");
 
-        fetch(`https://boiling-savannah-80998.herokuapp.com/task/delete/${id}`, {
+        fetch(`https://tu-du-app.herokuapp.com/task/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -37,7 +37,7 @@ const ToDo = () => {
 
 
     console.log(id , data);
-    fetch(`https://boiling-savannah-80998.herokuapp.com/task/update/${id}`, {
+    fetch(`https://tu-du-app.herokuapp.com/task/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
