@@ -56,15 +56,15 @@ const AddModal = () => {
             {/* close button  */}
             <button className="" onClick={closeModal}>
               <svg
-                class="w-7 h-7 absolute top-0 right-0 mt-3 mr-3"
+                 className="w-7 h-7 absolute top-0 right-0 mt-3 mr-3"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  className="evenodd"
                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </button>
@@ -76,10 +76,10 @@ const AddModal = () => {
 
           {/* modal body  */}
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="mb-3 md:mb-6">
+            <div  className="mb-3 md:mb-6">
               <label
                 for="base-input"
-                class="block mb-2 text-xs md:text-sm font-medium text-gray-900"
+                 className="block mb-2 text-xs md:text-sm font-medium text-gray-900"
               >
                 Full Name
               </label>
@@ -87,14 +87,14 @@ const AddModal = () => {
                 type="text"
                 {...register("fullName")}
                 id="base-input"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 selection:"
+                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 selection:"
               />
             </div>
 
-            <div class="mb-3 md:mb-6">
+            <div  className="mb-3 md:mb-6">
               <label
                 for="base-input"
-                class="block mb-2 text-xs md:text-sm font-medium text-gray-900"
+                 className="block mb-2 text-xs md:text-sm font-medium text-gray-900"
               >
                 Email
               </label>
@@ -102,14 +102,14 @@ const AddModal = () => {
                 type="email"
                 {...register("email")}
                 id="base-input"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
+                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
               />
             </div>
 
-            <div class="mb-3 md:mb-6">
+            <div  className="mb-3 md:mb-6">
               <label
                 for="base-input"
-                class="block mb-2 text-xs md:text-sm font-medium text-gray-900"
+                 className="block mb-2 text-xs md:text-sm font-medium text-gray-900"
               >
                 Phone
               </label>
@@ -117,14 +117,14 @@ const AddModal = () => {
                 type="number"
                 {...register("phone")}
                 id="base-input"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
+                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
               />
             </div>
 
-            <div class="mb-3 md:mb-6">
+            <div  className="mb-3 md:mb-6">
               <label
                 for="base-input"
-                class="block mb-2 text-xs md:text-sm font-medium text-gray-900"
+                 className="block mb-2 text-xs md:text-sm font-medium text-gray-900"
               >
                 Paid Amount
               </label>
@@ -132,13 +132,13 @@ const AddModal = () => {
                 type="number"
                 {...register("paidAmount")}
                 id="base-input"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
+                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5 "
               />
             </div>
 
             <button
               type="submit"
-              class="bg-[#12ab84] text-white border border-gray-300 text-sm rounded-lg block w-full pl-2 p-1 md:p-2.5 font-semibold"
+               className="bg-[#12ab84] text-white border border-gray-300 text-sm rounded-lg block w-full pl-2 p-1 md:p-2.5 font-semibold"
             >
               Add Bill
             </button>

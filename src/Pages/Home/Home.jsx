@@ -92,30 +92,30 @@ const Home = () => {
             onSubmit={handleSubmit(onSubmit)}
             // onKeyUp={handleEnterKeySubmit}
           >
-            <div class="mb-3 md:mb-6">
+            <div className="mb-3 md:mb-6">
               <input
                 type="text"
                 name="taskTitle"
                 {...register("taskTitle")}
                 placeholder="Task Title"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-1 md:p-2.5"
               />
             </div>
 
             <div>
-              <div class="mb-3 md:mb-6">
+              <div className="mb-3 md:mb-6">
                 <textarea
                   type="text"
                   {...register("taskDetails")}
                   name="taskDetails"
                   placeholder="Task Details"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-24 pl-2 p-1 md:p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-24 pl-2 p-1 md:p-2.5"
                 />
               </div>
-              <div class="mb-3 md:mb-6">
+              <div className="mb-3 md:mb-6">
                 <button
                   type="submit"
-                  class="bg-[#12ab84] hover:bg-[#0bab83] border text-white font-semibold text-sm md:text-lg rounded-lg block w-full pl-2 p-1 md:p-2.5"
+                  className="bg-[#12ab84] hover:bg-[#0bab83] border text-white font-semibold text-sm md:text-lg rounded-lg block w-full pl-2 p-1 md:p-2.5"
                 >
                   Add Task
                 </button>
@@ -138,7 +138,7 @@ const Home = () => {
                     <input
                       onChange={ e => handleChange(e, {taskTitle: singleData?.taskTitle, taskDetails: singleData?.taskDetails}, singleData?._id)}
                       type="checkbox"
-                      class="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
+                      className="w-4 h-4 mr-2 text-gray-700 bg-gray-100 border-blue-600 ring-offset-gray-800 focus:ring-2"
                     />
                     <span>{singleData?.taskTitle}</span>
                   </div>
